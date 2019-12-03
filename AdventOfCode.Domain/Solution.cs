@@ -2,6 +2,6 @@
 {
     public abstract class Solution
     {
-        public abstract void Run();
+        public abstract void Run(bool test = false);
     }
 }
