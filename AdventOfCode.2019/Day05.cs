@@ -14,10 +14,9 @@ namespace AdventOfCode._2019
                 Console.WriteLine("No tests here, going for real data");
             }
             var input = File.ReadAllText("Data/2019/05.txt");
-            
-            var data = input.Split(',').Select(int.Parse).ToArray();
 
-            Console.WriteLine($"Result Phase 1 : {CalcIntcode(data, 1)}");
+            Console.WriteLine($"Result Phase 1 : {CalcIntcode(input.Split(',').Select(int.Parse).ToArray(), 1)}");
+            Console.WriteLine($"Result Phase 2 : {CalcIntcode(input.Split(',').Select(int.Parse).ToArray(), 5)}");
         }
 
         private int CalcIntcode(int[] data, int inputValue)
@@ -25,18 +24,24 @@ namespace AdventOfCode._2019
             var currentStep = 0;
             var done = false;
             var latest = int.MinValue;
+
             while (!done)
             {
                 var opCode = GetOpCode(data[currentStep]);
                 var (mode1, mode2, mode3) = GetParamModes(data[currentStep]);
                 var a = 0;
                 var b = 0;
-                if (opCode == OpCode.Add || opCode == OpCode.Multiply)
+                
+                if (opCode == OpCode.Add
+                    || opCode == OpCode.Multiply
+                    || opCode == OpCode.JumpIfTrue
+                    || opCode == OpCode.JumpIfFalse
+                    || opCode == OpCode.LessThan
+                    || opCode == OpCode.Equals)
                 {
                     a = mode1 == Mode.Position ? data[data[currentStep + 1]] : data[currentStep + 1];
                     b = mode2 == Mode.Position ? data[data[currentStep + 2]] : data[currentStep + 2];
                 }
-
                 switch (opCode)
                 {
                     case OpCode.Stop:
@@ -57,6 +62,20 @@ namespace AdventOfCode._2019
                     case OpCode.Output:
                         latest = data[data[currentStep + 1]];
                         currentStep += 2;
+                        break;
+                    case OpCode.JumpIfTrue:
+                        currentStep = a == 0 ? currentStep + 3 : b;
+                        break;
+                    case OpCode.JumpIfFalse:
+                        currentStep = a != 0 ? currentStep + 3 : b;
+                        break;
+                    case OpCode.LessThan:
+                        data[data[currentStep + 3]] = a < b ? 1 : 0;
+                        currentStep += 4;
+                        break;
+                    case OpCode.Equals:
+                        data[data[currentStep + 3]] = a == b ? 1 : 0;
+                        currentStep += 4;
                         break;
                 }
             }
@@ -84,6 +103,10 @@ namespace AdventOfCode._2019
             Multiply = 2,
             Input = 3,
             Output = 4,
+            JumpIfTrue = 5,
+            JumpIfFalse = 6,
+            LessThan = 7,
+            Equals = 8,
             Stop = 99,
         }
 
