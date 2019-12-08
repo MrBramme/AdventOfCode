@@ -15,4 +15,8 @@
     <ProjectReference Include="..\AdventOfCode.Domain\AdventOfCode.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+    <Folder Include="Helpers\Day7\" />
+  </ItemGroup>
 </Project>
