@@ -9,7 +9,7 @@ namespace AdventOfCode.Program
         static void Main(string[] args)
         {
             const bool requestInput = false;
-            var (year, day) = GetYearAndDay(requestInput, 2019, 7);
+            var (year, day) = GetYearAndDay(requestInput, 2019, 8);
 
             Console.WriteLine("Use test input (Y/N):");
             var useTestInput = Console.ReadKey();
