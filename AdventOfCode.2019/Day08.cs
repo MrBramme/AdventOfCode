@@ -19,7 +19,9 @@ namespace AdventOfCode._2019
                 height = 2;
             }
             var layerdata = GetLayerData(data, width, height);
-            Console.WriteLine($"Phase 1 Result: {SolvePhase1(layerdata)}");   
+            Console.WriteLine($"Phase 1 Result: {SolvePhase1(layerdata)}");
+            Console.WriteLine("Phase 2 result:");
+            SolvePhase2(layerdata, width, height);
         }
 
         private string GetData(bool test)
@@ -50,7 +52,7 @@ namespace AdventOfCode._2019
             for(var i = 0; i < nrOfLayers; i++)
             {
                 var layerData = data.Substring(i * layerSize, layerSize);
-                layers[i] = new LayerData(layerData, i + 1, width, height);
+                layers[i] = new LayerData(layerData, width, height);
             }
             return layers;
         }
@@ -73,11 +75,46 @@ namespace AdventOfCode._2019
             return oneCount * twoCount;
         }
 
+        private void SolvePhase2(IEnumerable<LayerData> layers, int width, int height)
+        {
+            // 0 black, 1 white, 2 transp
+            var result = new int[height][];
+            for(var h = 0; h < height; h++)
+            {
+                result[h] = new int[width];
+                for (var w = 0; w < width; w++)
+                {
+                    foreach (var layer in layers)
+                    {
+                        if (layer.Data[h][w] < 2)
+                        {
+                            result[h][w] = layer.Data[h][w];
+                            break;
+                        }
+                    }
+                }
+            }
+
+            foreach(var row in result)
+            {
+                foreach(var c in row)
+                {
+                    if (c == 0)
+                    {
+                        Console.Write(" ");
+                    } else
+                    {
+                        Console.Write("#");
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+
         private class LayerData
         {
-            public LayerData(string data, int layerNr, int width, int height)
+            public LayerData(string data, int width, int height)
             {
-                LayerNr = layerNr;
                 origData = data;
 
                 Data = new int[height][];
@@ -92,7 +129,6 @@ namespace AdventOfCode._2019
             }
 
             public char[] LayerChars { get; }
-            public int LayerNr { get; }
             public string origData { get; }
             public int[][] Data { get; }
         }
