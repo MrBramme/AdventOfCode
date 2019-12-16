@@ -1,3 +1,5 @@
+Status: Taking a short break due to other project :)
+
 # Advent Of Code
 
 See [the advent of code site](https://adventofcode.com). This repo contains some solutions of mine. They might not all be pretty though :).
