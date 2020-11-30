@@ -48,9 +48,9 @@ namespace AdventOfCode.Core.Builder
 
         private string GetSolutionName(Assignment assignment)
         {
-            if (assignment.IsExtra)
+            if (!string.IsNullOrEmpty(assignment.Suffix))
             {
-                return $"Solution{assignment.Year}{assignment.Day:00}Extra";
+                return $"Solution{assignment.Year}{assignment.Day:00}{assignment.Suffix}";
             }
             return $"Solution{assignment.Year}{assignment.Day:00}";
         }

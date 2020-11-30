@@ -19,12 +19,12 @@ namespace AdventOfCode.Core.Builder
             {
                 var year = int.Parse(assignment.Substring(0, 4));
                 var day = int.Parse(assignment.Substring(4, 2));
-                var isExtra = assignment.Substring(6, 1);
+                var suffix = assignment.Substring(6);
                 return new Assignment
                 {
                     Year = year,
                     Day = day,
-                    IsExtra = isExtra == "Y"
+                    Suffix = suffix,
                 };
             }
             catch (Exception e)

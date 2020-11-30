@@ -22,7 +22,7 @@ namespace AdventOfCode.ConsoleApp
             var assignmentBuilder = serviceProvider.GetService<IAssignmentBuilder>();
             var solutionBuilder = serviceProvider.GetService<ISolutionBuilder>();
 
-            var assignment = GetAssignment(args, assignmentBuilder); // yyyyddY or yyyyddN
+            var assignment = GetAssignment(args, assignmentBuilder); // yyyydd(suffix)
             var solution = solutionBuilder.CreateSolution(assignment);
 
             logger.LogInformation($"Starting");
@@ -58,9 +58,9 @@ namespace AdventOfCode.ConsoleApp
                     day = $"0{day}";
                 }
 
-                Console.WriteLine("Is it an extra? [Y/N]");
-                var isExtra = Console.ReadLine();
-                assignmentString = $"{year}{day}{isExtra.ToUpper()}";
+                Console.WriteLine("Suffix?");
+                var suffix = Console.ReadLine();
+                assignmentString = $"{year}{day}{suffix}";
             }
 
             return assignmentBuilder.CreateAssignment(assignmentString);

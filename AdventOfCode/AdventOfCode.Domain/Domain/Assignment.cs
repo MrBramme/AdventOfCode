@@ -4,6 +4,6 @@
     {
         public int Year { get; set; }
         public int Day { get; set; }
-        public bool IsExtra { get; set; }
+        public string Suffix { get; set; }
     }
 }
