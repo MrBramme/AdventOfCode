@@ -1,0 +1,118 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Resources2019\Day01.txt" />
+    <None Remove="Resources2019\Day02.txt" />
+    <None Remove="Resources2019\Day03.txt" />
+    <None Remove="Resources2019\Day04.txt" />
+    <None Remove="Resources2019\Day05.txt" />
+    <None Remove="Resources2019\Day06.txt" />
+    <None Remove="Resources2019\Day07.txt" />
+    <None Remove="Resources2019\Day08.txt" />
+    <None Remove="Resources2019\Day09.txt" />
+    <None Remove="Resources2019\Day10.txt" />
+    <None Remove="Resources2019\Day11.txt" />
+    <None Remove="Resources2019\Day12.txt" />
+    <None Remove="Resources2019\Day13.txt" />
+    <None Remove="Resources2019\Day14.txt" />
+    <None Remove="Resources2019\Day15.txt" />
+    <None Remove="Resources2019\Day16.txt" />
+    <None Remove="Resources2019\Day17.txt" />
+    <None Remove="Resources2019\Day18.txt" />
+    <None Remove="Resources2019\Day19.txt" />
+    <None Remove="Resources2019\Day20.txt" />
+    <None Remove="Resources2019\Day21.txt" />
+    <None Remove="Resources2019\Day22.txt" />
+    <None Remove="Resources2019\Day23.txt" />
+    <None Remove="Resources2019\Day24.txt" />
+    <None Remove="Resources2019\Day25.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources2019\Day01.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day02.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day03.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day04.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day05.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day06.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day07.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day08.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day09.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day10.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day11.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day12.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day13.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day14.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day15.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day16.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day17.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day18.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day19.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day20.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day21.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day22.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day23.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day24.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2019\Day25.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AdventOfCode.Domain\AdventOfCode.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
