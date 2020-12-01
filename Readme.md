@@ -1,4 +1,4 @@
-Status: Prepped for 2020!
+Status: 2020 Day 1: Done!
 
 # Advent Of Code
 
