@@ -114,8 +114,4 @@
     <ProjectReference Include="..\AdventOfCode.Domain\AdventOfCode.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Solutions\" />
-  </ItemGroup>
-
 </Project>
