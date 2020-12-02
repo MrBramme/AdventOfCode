@@ -1,6 +1,6 @@
 ﻿using AdventOfCode.Domain.Interfaces;
+using AdventOfCode.Year2020.Core;
 using Microsoft.Extensions.Logging;
-using System.Linq;
 
 namespace AdventOfCode.Year2020.Solutions
 {
@@ -17,8 +17,16 @@ namespace AdventOfCode.Year2020.Solutions
         }
         public string GetSolution()
         {
-            var input = _inputService.GetInput(resourceLocation).Select(int.Parse);
+            var passwords = _inputService.GetInput(resourceLocation);
+            var passwordValidator = new PasswordValidator202002Part2();
             var result = 0;
+            foreach (var password in passwords)
+            {
+                if (passwordValidator.IsValid(password))
+                {
+                    result += 1;
+                }
+            }
 
             return $"{result}";
         }
