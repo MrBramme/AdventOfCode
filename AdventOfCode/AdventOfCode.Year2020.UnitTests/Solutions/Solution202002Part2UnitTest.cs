@@ -26,8 +26,8 @@ namespace AdventOfCode.Year2020.UnitTests.Solutions
         public void GivenExampleInput_ReturnsExpected()
         {
             // Given
-            var expected = "514579";
-            _inputService.Setup(x => x.GetInput(It.IsAny<string>())).Returns("1721,979,366,299,675,1456".Split(','));
+            var expected = "1";
+            _inputService.Setup(x => x.GetInput(It.IsAny<string>())).Returns(new[] { "1-3 a: abcde", "1-3 b: cdefg", "2-9 c: ccccccccc" });
 
             // When
             var result = _sut.GetSolution();
