@@ -1,4 +1,4 @@
-Status: 2020 Day 6: Done!
+Status: 2020 Day 7: Done!
 
 # Advent Of Code
 
