@@ -1,6 +1,5 @@
 ﻿using AdventOfCode.Domain.Interfaces;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Linq;
 
 namespace AdventOfCode.Year2020.Solutions
@@ -45,13 +44,6 @@ namespace AdventOfCode.Year2020.Solutions
                 }
             }
             return $"{result}";
-        }
-
-        private static ValueTuple<string, int> GetInstruction(string input)
-        {
-            var parts = input.Split(' ');
-            var value = int.Parse(parts[1]);
-            return (parts[0], value);
         }
     }
 }
