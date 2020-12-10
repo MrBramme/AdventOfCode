@@ -1,4 +1,4 @@
-Status: 2020 Day 10 part 1: Done!
+Status: 2020 Day 10: Done!
 
 # Advent Of Code
 
