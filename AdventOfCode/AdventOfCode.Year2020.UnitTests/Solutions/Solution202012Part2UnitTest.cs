@@ -23,18 +23,8 @@ namespace AdventOfCode.Year2020.UnitTests.Solutions
         public void GivenExample_ReturnsExpected()
         {
             // Given
-            var expected = "37";
-            var input = new[] {
-                "L.LL.LL.LL",
-                "LLLLLLL.LL",
-                "L.L.L..L..",
-                "LLLL.LL.LL",
-                "L.LL.LL.LL",
-                "L.LLLLL.LL",
-                "..L.L.....",
-                "LLLLLLLLLL",
-                "L.LLLLLL.L",
-                "L.LLLLL.LL" };
+            var expected = "286";
+            var input = new[] { "F10", "N3", "F7", "R90", "F11" };
             _inputService.Setup(x => x.GetInput(It.IsAny<string>())).Returns(input);
             // When
             var result = _sut.GetSolution();
