@@ -49,7 +49,7 @@ namespace AdventOfCode.Year2020.Solutions
         class Bus
         {
             public readonly long Id;
-            public readonly long Offset;
+            private readonly long Offset;
 
             public Bus(string busId, int offset)
             {
