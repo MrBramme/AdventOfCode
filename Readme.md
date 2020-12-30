@@ -1,4 +1,4 @@
-Status: 2020 Day 19: Done!
+Status: 2020 Day 20 - Part 1: Done!
 
 # Advent Of Code
 
