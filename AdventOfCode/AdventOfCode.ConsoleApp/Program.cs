@@ -4,6 +4,7 @@ using AdventOfCode.Domain.Domain;
 using AdventOfCode.Domain.Interfaces;
 using AdventOfCode.Year2019;
 using AdventOfCode.Year2020;
+using AdventOfCode.Year2021;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
@@ -75,24 +76,21 @@ namespace AdventOfCode.ConsoleApp
                 .AddSingleton<IInputService, InputService>()
                 .AddSingleton<ISolutionBuilder, SolutionBuilder>();
 
-            var solutions2019 = Assembly.GetAssembly(typeof(Assembly2019))
-                .GetTypes()
-                .Where(x => x.GetInterfaces().Contains(typeof(ISolution)))
-                .Where(x => x.IsClass);
+            SetupAssembly(services, typeof(Assembly2019));
+            SetupAssembly(services, typeof(Assembly2020));
+            SetupAssembly(services, typeof(Assembly2021));
+        }
 
-            foreach (var solution2019 in solutions2019)
+        private static void SetupAssembly(IServiceCollection services, Type assemblyType)
+        {
+            var solutions = Assembly.GetAssembly(assemblyType)
+                            .GetTypes()
+                            .Where(x => x.GetInterfaces().Contains(typeof(ISolution)))
+                            .Where(x => x.IsClass);
+
+            foreach (var solution in solutions)
             {
-                services.AddTransient(solution2019);
-            }
-
-            var solutions2020 = Assembly.GetAssembly(typeof(Assembly2020))
-                .GetTypes()
-                .Where(x => x.GetInterfaces().Contains(typeof(ISolution)))
-                .Where(x => x.IsClass);
-
-            foreach (var solution2020 in solutions2020)
-            {
-                services.AddTransient(solution2020);
+                services.AddTransient(solution);
             }
         }
     }

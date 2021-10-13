@@ -15,7 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode.Core", "Advent
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode.Year2020", "AdventOfCode.Year2020\AdventOfCode.Year2020.csproj", "{F642EBFD-EFBB-4120-A62F-0FD7899D617A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Year2020.UnitTests", "AdventOfCode.Year2020.UnitTests\AdventOfCode.Year2020.UnitTests.csproj", "{EFF1E60D-0676-470D-90C0-563BCCE33300}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode.Year2020.UnitTests", "AdventOfCode.Year2020.UnitTests\AdventOfCode.Year2020.UnitTests.csproj", "{EFF1E60D-0676-470D-90C0-563BCCE33300}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Year2021", "AdventOfCode.Year2021\AdventOfCode.Year2021.csproj", "{E6F5455E-3567-40D9-BBFE-7BEC98E3D5BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Year2021.UnitTests", "AdventOfCode.Year2021.UnitTests\AdventOfCode.Year2021.UnitTests.csproj", "{47921CA8-83B0-482C-BF0A-B7333A6AAC13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{EFF1E60D-0676-470D-90C0-563BCCE33300}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFF1E60D-0676-470D-90C0-563BCCE33300}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFF1E60D-0676-470D-90C0-563BCCE33300}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6F5455E-3567-40D9-BBFE-7BEC98E3D5BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6F5455E-3567-40D9-BBFE-7BEC98E3D5BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6F5455E-3567-40D9-BBFE-7BEC98E3D5BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6F5455E-3567-40D9-BBFE-7BEC98E3D5BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47921CA8-83B0-482C-BF0A-B7333A6AAC13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47921CA8-83B0-482C-BF0A-B7333A6AAC13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47921CA8-83B0-482C-BF0A-B7333A6AAC13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47921CA8-83B0-482C-BF0A-B7333A6AAC13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
