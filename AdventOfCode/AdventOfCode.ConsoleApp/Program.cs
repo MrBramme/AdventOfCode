@@ -50,16 +50,16 @@ namespace AdventOfCode.ConsoleApp
             var assignmentString = args.Any() ? args[0] : string.Empty;
             if (string.IsNullOrEmpty(assignmentString))
             {
-                Console.WriteLine("What year?");
+                Console.WriteLine("What year? (yyyy)");
                 var year = Console.ReadLine();
-                Console.WriteLine("What day?");
+                Console.WriteLine("What day? (d)");
                 var day = Console.ReadLine();
                 if (day.Length == 1)
                 {
                     day = $"0{day}";
                 }
 
-                Console.WriteLine("Suffix?");
+                Console.WriteLine("Suffix? (Part2)");
                 var suffix = Console.ReadLine();
                 assignmentString = $"{year}{day}{suffix}";
             }

@@ -22,7 +22,7 @@ namespace AdventOfCode.Year2021.Solutions
             {
                 if (depthMeasurement > counter.lastDepth)
                 {
-                    counter.increaseCounter += 1;
+                    counter.increaseCounter++;
                 }
                 counter.lastDepth = depthMeasurement;
                 return counter;
