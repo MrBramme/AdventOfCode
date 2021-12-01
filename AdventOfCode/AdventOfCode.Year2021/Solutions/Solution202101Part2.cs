@@ -21,19 +21,20 @@ namespace AdventOfCode.Year2021.Solutions
             var steps = 3;
             var nrOfGroups = depthMeasurements.Length - steps + 1;
 
-            var lastMeasurement = int.MaxValue;
-            var counter = 0;
-            for(var i = 0; i < nrOfGroups; i++)
-            {
-                var currentDepth = depthMeasurements.Skip(i).Take(steps).Sum();
-                if(currentDepth > lastMeasurement)
+            return Enumerable
+                .Range(0, nrOfGroups)
+                .Select(i => depthMeasurements.Skip(i).Take(steps).Sum())
+                .Aggregate((increaseCounter: 0, lastDepth: int.MaxValue), (counter, depthMeasurement) =>
                 {
-                    counter++;
-                }
-                lastMeasurement = currentDepth;
-            }
-
-            return $"{counter}";
+                    if (depthMeasurement > counter.lastDepth)
+                    {
+                        counter.increaseCounter++;
+                    }
+                    counter.lastDepth = depthMeasurement;
+                    return counter;
+                })
+                .increaseCounter
+                .ToString();
         }
     }
 }
