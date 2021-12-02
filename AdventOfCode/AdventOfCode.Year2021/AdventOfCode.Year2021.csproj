@@ -6,9 +6,13 @@
 
   <ItemGroup>
     <None Remove="Resources2021\Day01.txt" />
+    <None Remove="Resources2021\Day02.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Resources2021\Day02.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources2021\Day01.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
