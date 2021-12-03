@@ -1,4 +1,4 @@
-Status: 2021 Day 2 - Part 2: Done!
+Status: 2021 Day 3 - Part 1: Done!
 
 # Advent Of Code
 
