@@ -6,13 +6,13 @@ using System.Linq;
 
 namespace AdventOfCode.Year2021.Solutions
 {
-    public class Solution202105 : ISolution
+    public class Solution202105Part2 : ISolution
     {
-        private readonly ILogger<Solution202105> _logger;
+        private readonly ILogger<Solution202105Part2> _logger;
         private readonly IInputService _inputService;
         private readonly string resourceLocation = "Resources2021\\Day05.txt";
 
-        public Solution202105(ILogger<Solution202105> logger, IInputService inputService)
+        public Solution202105Part2(ILogger<Solution202105Part2> logger, IInputService inputService)
         {
             _logger = logger;
             _inputService = inputService;
@@ -41,7 +41,7 @@ namespace AdventOfCode.Year2021.Solutions
             }
 
             var higherCount = grid.Values.Count(x => x > 1);
-            return $"{higherCount}";
+            return $"{higherCount}"; //19544 too low
         }
 
         private void DebugPrintGrid(IEnumerable<Line> lines)
@@ -77,7 +77,8 @@ namespace AdventOfCode.Year2021.Solutions
 
             public bool IsValid()
             {
-                return Start.x == End.x || Start.y == End.y;
+                var diagCheck = Math.Abs(Start.x - End.x) == Math.Abs(Start.y - End.y);
+                return Start.x == End.x || Start.y == End.y | diagCheck;
             }
 
             public IEnumerable<Point> GetLineCoordinates()
@@ -89,12 +90,24 @@ namespace AdventOfCode.Year2021.Solutions
                     var cnt = (range.highest - range.lowest) + 1;
                     return Enumerable.Range(range.lowest, cnt).Select(i => new Point(i, Start.y));
                 }
-                else
+                var isVertical = Start.x == End.x;
+                if (isVertical)
                 {
                     var range = GetOrdered(Start.y, End.y);
                     var cnt = (range.highest - range.lowest) + 1;
                     return Enumerable.Range(range.lowest, cnt).Select(i => new Point(Start.x, i));
                 }
+                var directionX = Start.x > End.x ? -1 : 1;
+                var directionY = Start.y > End.y ? -1 : 1;
+                var currentPos = Start;
+                var lines = new List<Point>();
+                while(currentPos != End)
+                {
+                    lines.Add(currentPos);
+                    currentPos = new Point(currentPos.x + directionX, currentPos.y + directionY);
+                }
+                lines.Add(currentPos);
+                return lines;
             }
 
             private (int highest, int lowest) GetOrdered(int a, int b)
