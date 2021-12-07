@@ -24,17 +24,16 @@ namespace AdventOfCode.Year2021.Solutions
 
             (var min, var max) = (crabs.Min(c => c.position), crabs.Max(c => c.position));
 
-            var fuelCost = int.MaxValue;
+            var optimalFuelCost = int.MaxValue;
             for(var position = min; position <= max; position++)
             {
                 var totalFuel = crabs.Sum(c => c.FuelcostForMoveTo(position));
-                if (totalFuel < fuelCost)
+                if (totalFuel < optimalFuelCost)
                 {
-                    fuelCost = totalFuel;
+                    optimalFuelCost = totalFuel;
                 }
             }
-
-            return $"{fuelCost}";
+            return $"{optimalFuelCost}";
         }
 
         private record Crab(int position)
@@ -42,7 +41,7 @@ namespace AdventOfCode.Year2021.Solutions
             public int FuelcostForMoveTo(int target)
             {
                 var distance = Math.Abs(position - target);
-                return Enumerable.Range(0, distance).Sum(i => distance - i);
+                return (1 + distance) * distance / 2;
             }
         }
 
