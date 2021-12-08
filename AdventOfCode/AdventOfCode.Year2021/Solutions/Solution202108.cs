@@ -25,10 +25,5 @@ namespace AdventOfCode.Year2021.Solutions
             var result = patterns.Sum(p => p.Last().Count(i => validLengths.Contains(i.Length)));
             return $"{result}";
         }
-
-
-
     }
-
-    
 }
