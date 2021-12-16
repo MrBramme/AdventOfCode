@@ -6,13 +6,13 @@ using System.Linq;
 
 namespace AdventOfCode.Year2021.Solutions
 {
-    public class Solution202115 : ISolution
+    public class Solution202115Part2 : ISolution
     {
-        private readonly ILogger<Solution202115> _logger;
+        private readonly ILogger<Solution202115Part2> _logger;
         private readonly IInputService _inputService;
         private readonly string resourceLocation = "Resources2021\\Day15.txt";
 
-        public Solution202115(ILogger<Solution202115> logger, IInputService inputService)
+        public Solution202115Part2(ILogger<Solution202115Part2> logger, IInputService inputService)
         {
             _logger = logger;
             _inputService = inputService;
@@ -63,9 +63,10 @@ namespace AdventOfCode.Year2021.Solutions
 
         private Dictionary<Point, int> GetRiskMap(string[] input)
         {
-            var mapHeight = input.Length;
-            var mapWidth = input[0].Length;
             var riskArray = input.Select(x => x.ToCharArray().Select(y => int.Parse(y.ToString())).ToArray()).ToArray();
+            riskArray = ScaleUp(riskArray);
+            var mapHeight = riskArray.Length;
+            var mapWidth = riskArray[0].Length;
             var map = new Dictionary<Point, int>();
             for(var y = 0; y < mapHeight; y++)
             {
@@ -76,6 +77,41 @@ namespace AdventOfCode.Year2021.Solutions
             }
             return map;
         }
+
+        private int[][] ScaleUp(int[][] map)
+        {
+            var newWidth = map[0].Length * 5;
+            var newHeight = map.Length * 5;
+            var newMap = new int[newHeight][];
+            for(var y = 0; y < newHeight; y++)
+            {
+                newMap[y] = new int[newWidth];
+            }
+            for(var rowRepetition = 0; rowRepetition < 5; rowRepetition++)
+            {
+                var yOffset = rowRepetition * map.Length;
+                for (var colRepetition = 0; colRepetition < 5; colRepetition++)
+                {
+                    var xOffset = colRepetition * map[0].Length;
+                    var riskIncrease = yOffset + xOffset;
+                    for(var y = 0; y < map.Length; y++)
+                    {
+                        for (var x = 0; x < map[0].Length; x++)
+                        {
+                            var originalRisk = map[y][x];
+                            var newRisk = originalRisk + riskIncrease;
+                            while (newRisk > 9)
+                            {
+                                newRisk -= 9;
+                            }
+                            newMap[yOffset + y][xOffset + x] = newRisk;
+                        }
+                    }
+                }
+            }
+            return newMap;
+        }
+
         private record Point(int X, int Y)
         {
             public Point[] Neighbours =>

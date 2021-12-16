@@ -1,4 +1,4 @@
-Status: 2021 Day 14 - Part 2: Done! day 15 started but not done
+Status: 2021 Day 15 - Part 2: Done!
 
 # Advent Of Code
 
