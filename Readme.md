@@ -1,4 +1,4 @@
-Status: 2021 Day 17 - Part 2: Done! (16 is still to do)
+Status: 2021 Day 22 - Part 1: Done! (missing some in between though)
 
 # Advent Of Code
 
