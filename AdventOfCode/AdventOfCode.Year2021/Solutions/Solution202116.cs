@@ -22,9 +22,10 @@ namespace AdventOfCode.Year2021.Solutions
 
         public string GetSolution()
         {
+            throw new NotImplementedException("not done yet");
             var hex = _inputService.GetInput(resourceLocation)[0];
             var package = string.Join(string.Empty, hex.Select(c => Convert.ToString(Convert.ToInt32(c.ToString(), 16), 2).PadLeft(4, '0')));
-            // TODO: This does not yet work
+            
             var result = GetPackageVersionTotal(package);
             return $"{result.versionTotal}";
         }
