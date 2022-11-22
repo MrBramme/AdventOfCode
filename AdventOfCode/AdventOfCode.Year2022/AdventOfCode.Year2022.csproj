@@ -7,6 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources2022\Day01.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources2022\Day01.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AdventOfCode.Domain\AdventOfCode.Domain.csproj" />
   </ItemGroup>
   

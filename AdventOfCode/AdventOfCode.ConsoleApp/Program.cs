@@ -5,6 +5,7 @@ using AdventOfCode.Domain.Interfaces;
 using AdventOfCode.Year2019;
 using AdventOfCode.Year2020;
 using AdventOfCode.Year2021;
+using AdventOfCode.Year2022;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
@@ -79,6 +80,7 @@ namespace AdventOfCode.ConsoleApp
             SetupAssembly(services, typeof(Assembly2019));
             SetupAssembly(services, typeof(Assembly2020));
             SetupAssembly(services, typeof(Assembly2021));
+            SetupAssembly(services, typeof(Assembly2022));
         }
 
         private static void SetupAssembly(IServiceCollection services, Type assemblyType)
