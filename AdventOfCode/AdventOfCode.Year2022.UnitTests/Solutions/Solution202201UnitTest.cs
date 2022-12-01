@@ -3,7 +3,6 @@ using AdventOfCode.Year2022.Solutions;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using Moq;
-using NUnit.Framework;
 
 namespace AdventOfCode.Year2022.UnitTests.Solutions
 {
@@ -26,12 +25,15 @@ namespace AdventOfCode.Year2022.UnitTests.Solutions
         public void GivenExampleInput_ReturnsExpected()
         {
             // Given
+            var expected = "24000";
+            _inputService.Setup(x => x.GetInput(It.IsAny<string>())).Returns("1000,2000,3000,,4000,,5000,6000,,7000,8000,9000,,10000".Split(','));
 
             // When
             var result = _sut.GetSolution();
 
             // Then
-           
+            result.Should().Be(expected);
         }
     }
 }
+

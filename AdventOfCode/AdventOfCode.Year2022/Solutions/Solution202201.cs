@@ -1,6 +1,5 @@
 ﻿using AdventOfCode.Domain.Interfaces;
 using Microsoft.Extensions.Logging;
-using System.Linq;
 
 namespace AdventOfCode.Year2022.Solutions
 {
@@ -17,7 +16,34 @@ namespace AdventOfCode.Year2022.Solutions
         }
         public string GetSolution()
         {
-            throw new NotImplementedException();
+            var caloriesInput = _inputService.GetInput(resourceLocation).ToList();
+            var maxCalories = 0;
+            var currentCalories = 0;
+
+            foreach (var calories in caloriesInput)
+            {
+                if (string.IsNullOrWhiteSpace(calories))
+                {
+                    maxCalories = GetMaxCalories(currentCalories, maxCalories);
+                    currentCalories = 0;
+                }
+                else
+                {
+                    currentCalories += int.Parse(calories);
+                }
+            }
+            maxCalories = GetMaxCalories(currentCalories, maxCalories);
+            return $"{maxCalories}";
+        }
+
+        private static int GetMaxCalories(int currentCalories, int maxCalories)
+        {
+            if (currentCalories > maxCalories)
+            {
+                maxCalories = currentCalories;
+            }
+
+            return maxCalories;
         }
     }
 }
