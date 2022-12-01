@@ -1,4 +1,4 @@
-Status: 2021 Day 22 - Part 1: Done! (missing some in between though)
+Status: 2022 Day 1 - Part 2: Done! 
 
 # Advent Of Code
 
