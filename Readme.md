@@ -1,5 +1,3 @@
-Status: 2022 Day 1 - Part 2: Done! 
-
 # Advent Of Code
 
 See [the advent of code site](https://adventofcode.com). This repo contains some solutions of mine. They might not all be pretty though :).
