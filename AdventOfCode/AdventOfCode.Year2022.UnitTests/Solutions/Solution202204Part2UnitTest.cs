@@ -7,26 +7,26 @@ using Moq;
 namespace AdventOfCode.Year2022.UnitTests.Solutions
 {
     [TestFixture]
-    public class Solution202203Part2UnitTest
+    public class Solution202204Part2UnitTest
     {
-        private Solution202203Part2 _sut;
-        private Mock<ILogger<Solution202203Part2>> _loggerMock;
+        private Solution202204Part2 _sut;
+        private Mock<ILogger<Solution202204Part2>> _loggerMock;
         private Mock<IInputService> _inputService;
 
         [SetUp]
         public void SetUp()
         {
-            _loggerMock = new Mock<ILogger<Solution202203Part2>>();
+            _loggerMock = new Mock<ILogger<Solution202204Part2>>();
             _inputService = new Mock<IInputService>();
-            _sut = new Solution202203Part2(_loggerMock.Object, _inputService.Object);
+            _sut = new Solution202204Part2(_loggerMock.Object, _inputService.Object);
         }
 
         [Test]
         public void GivenExampleInput_ReturnsExpected()
         {
             // Given
-            var expected = "70";
-            _inputService.Setup(x => x.GetInput(It.IsAny<string>())).Returns("vJrwpWtwJgWrhcsFMMfFFhFp\r\njqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL\r\nPmmdzqPrVvPwwTWBwg\r\nwMqvLMZHhHMvwLHjbvcjnnSBnvTQFn\r\nttgJtRGJQctTZtZT\r\nCrZsJsPPZsGzwwsLwLmpwMDw".Split("\r\n"));
+            var expected = "157";
+            _inputService.Setup(x => x.GetInput(It.IsAny<string>())).Returns("".Split("\r\n"));
 
             // When
             var result = _sut.GetSolution();

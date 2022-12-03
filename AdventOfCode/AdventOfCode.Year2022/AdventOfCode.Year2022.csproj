@@ -10,9 +10,13 @@
     <None Remove="Resources2022\Day01.txt" />
     <None Remove="Resources2022\Day02.txt" />
     <None Remove="Resources2022\Day03.txt" />
+    <None Remove="Resources2022\Day04.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Resources2022\Day04.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources2022\Day03.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -25,8 +25,8 @@ namespace AdventOfCode.Year2022.UnitTests.Solutions
         public void GivenExampleInput_ReturnsExpected()
         {
             // Given
-            var expected = "15";
-            _inputService.Setup(x => x.GetInput(It.IsAny<string>())).Returns("A Y,B X,C Z".Split(','));
+            var expected = "157";
+            _inputService.Setup(x => x.GetInput(It.IsAny<string>())).Returns("vJrwpWtwJgWrhcsFMMfFFhFp\r\njqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL\r\nPmmdzqPrVvPwwTWBwg\r\nwMqvLMZHhHMvwLHjbvcjnnSBnvTQFn\r\nttgJtRGJQctTZtZT\r\nCrZsJsPPZsGzwwsLwLmpwMDw".Split("\r\n"));
 
             // When
             var result = _sut.GetSolution();
