@@ -25,8 +25,8 @@ namespace AdventOfCode.Year2022.UnitTests.Solutions
         public void GivenExampleInput_ReturnsExpected()
         {
             // Given
-            var expected = "157";
-            _inputService.Setup(x => x.GetInput(It.IsAny<string>())).Returns("".Split("\r\n"));
+            var expected = "2";
+            _inputService.Setup(x => x.GetInput(It.IsAny<string>())).Returns("2-4,6-8\r\n2-3,4-5\r\n5-7,7-9\r\n2-8,3-7\r\n6-6,4-6\r\n2-6,4-8".Split("\r\n"));
 
             // When
             var result = _sut.GetSolution();

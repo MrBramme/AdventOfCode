@@ -17,10 +17,29 @@ namespace AdventOfCode.Year2022.Solutions
 
         public string GetSolution()
         {
-            throw new NotImplementedException();
-            var input = _inputService.GetInput(resourceLocation).Select(x => x.ToCharArray()).ToList();
+            var input = _inputService.GetInput(resourceLocation).Select(x =>
+            {
+                var ids = x.Split(',');
+                var firstIdSet = ids[0].Split("-").Select(int.Parse).ToArray();
+                var secondIdSet = ids[1].Split("-").Select(int.Parse).ToArray();
+                return (new IdSet(firstIdSet[0], firstIdSet[1]), new IdSet(secondIdSet[0], secondIdSet[1]));
+            }).ToList();
+
             var result = 0;
+            foreach (var workPairs in input)
+            {
+                if (workPairs.Item1.GetSequence.Union(workPairs.Item2.GetSequence).Distinct().Count() != workPairs.Item1.GetCountOfIds + workPairs.Item2.GetCountOfIds)
+                {
+                    result++;
+                }
+            }
             return $"{result}";
         }
+
+        private record IdSet(int Start, int End)
+        {
+            public IEnumerable<int> GetSequence => Enumerable.Range(Start, GetCountOfIds);
+            public int GetCountOfIds => End - Start + 1;
+        };
     }
 }
