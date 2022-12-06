@@ -17,10 +17,24 @@ namespace AdventOfCode.Year2022.Solutions
 
         public string GetSolution()
         {
-            throw new NotImplementedException();
-            // var input = _inputService.GetInput(resourceLocation);
-            // var result = "";
-            // return $"{result}";
+            var input = _inputService.GetInput(resourceLocation).First().ToCharArray();
+            var result = -1;
+            for (var i = 4; i < input.Length; i++)
+            {
+                var cnt = 0;
+                for (var j = 4; j > 0; j--)
+                {
+                    cnt += input[(i - 4)..i].Count(x => x == input[i - j]);
+                }
+
+                if (cnt == 4)
+                {
+                    result = i;
+                    break;
+                }
+            }
+
+            return $"{result}";
         }
     }
 }

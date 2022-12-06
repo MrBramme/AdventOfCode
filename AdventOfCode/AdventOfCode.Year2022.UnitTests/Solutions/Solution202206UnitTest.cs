@@ -21,12 +21,15 @@ namespace AdventOfCode.Year2022.UnitTests.Solutions
             _sut = new Solution202206(_loggerMock.Object, _inputService.Object);
         }
 
-        [Test]
-        public void GivenExampleInput_ReturnsExpected()
+        [TestCase("mjqjpqmgbljsphdztnvjfqwrcgsmlb", "7")]
+        [TestCase("bvwbjplbgvbhsrlpgdmjqwftvncz", "5")]
+        [TestCase("nppdvjthqldpwncqszvftbrmjlhg", "6")]
+        [TestCase("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg", "10")]
+        [TestCase("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw", "11")]
+        public void GivenExampleInput_ReturnsExpected(string input, string expected)
         {
             // Given
-            var expected = "CMZ";
-            _inputService.Setup(x => x.GetInput(It.IsAny<string>())).Returns("    [D]    \r\n[N] [C]    \r\n[Z] [M] [P]\r\n 1   2   3 \r\n\r\nmove 1 from 2 to 1\r\nmove 3 from 1 to 3\r\nmove 2 from 2 to 1\r\nmove 1 from 1 to 2".Split("\r\n"));
+            _inputService.Setup(x => x.GetInput(It.IsAny<string>())).Returns(new[] { input });
 
             // When
             var result = _sut.GetSolution();
