@@ -21,15 +21,12 @@ namespace AdventOfCode.Year2022.UnitTests.Solutions
             _sut = new Solution202207(_loggerMock.Object, _inputService.Object);
         }
 
-        [TestCase("mjqjpqmgbljsphdztnvjfqwrcgsmlb", "7")]
-        [TestCase("bvwbjplbgvbhsrlpgdmjqwftvncz", "5")]
-        [TestCase("nppdvjthqldpwncqszvftbrmjlhg", "6")]
-        [TestCase("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg", "10")]
-        [TestCase("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw", "11")]
-        public void GivenExampleInput_ReturnsExpected(string input, string expected)
+        [Test]
+        public void GivenExampleInput_ReturnsExpected()
         {
             // Given
-            _inputService.Setup(x => x.GetInput(It.IsAny<string>())).Returns(new[] { input });
+            var expected = "95437";
+            _inputService.Setup(x => x.GetInput(It.IsAny<string>())).Returns("$ cd /\r\n$ ls\r\ndir a\r\n14848514 b.txt\r\n8504156 c.dat\r\ndir d\r\n$ cd a\r\n$ ls\r\ndir e\r\n29116 f\r\n2557 g\r\n62596 h.lst\r\n$ cd e\r\n$ ls\r\n584 i\r\n$ cd ..\r\n$ cd ..\r\n$ cd d\r\n$ ls\r\n4060174 j\r\n8033020 d.log\r\n5626152 d.ext\r\n7214296 k".Split("\r\n"));
 
             // When
             var result = _sut.GetSolution();
