@@ -17,8 +17,40 @@ namespace AdventOfCode.Year2022.Solutions
 
         public string GetSolution()
         {
-            var input = _inputService.GetInput(resourceLocation);
-            var result = -1;
+            var input = _inputService.GetInput(resourceLocation).ToList();
+            var x = 1;
+            var cycle = 0;
+            var result = 0;
+
+            var cyclesToCheck = new[] { 20, 60, 100, 140, 180, 220 };
+
+            foreach (var command in input)
+            {
+                if (command == "noop")
+                {
+                    cycle++;
+                    if (cyclesToCheck.Contains(cycle))
+                    {
+                        result += cycle * x;
+                    }
+                    continue;
+                }
+
+                var amount = int.Parse(command.Split(" ")[1]);
+                cycle++;
+                if (cyclesToCheck.Contains(cycle))
+                {
+                    result += cycle * x;
+                }
+                cycle++;
+                if (cyclesToCheck.Contains(cycle))
+                {
+                    result += cycle * x;
+                }
+                x += amount;
+            }
+
+
             return $"{result}";
         }
     }
