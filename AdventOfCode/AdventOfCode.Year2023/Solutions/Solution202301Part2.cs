@@ -3,13 +3,13 @@ using Microsoft.Extensions.Logging;
 
 namespace AdventOfCode.Year2023.Solutions
 {
-    public class Solution202301 : ISolution
+    public class Solution202301Part2 : ISolution
     {
-        private readonly ILogger<Solution202301> _logger;
+        private readonly ILogger<Solution202301Part2> _logger;
         private readonly IInputService _inputService;
         private readonly string resourceLocation = "Resources2023\\Day01.txt";
 
-        public Solution202301(ILogger<Solution202301> logger, IInputService inputService)
+        public Solution202301Part2(ILogger<Solution202301Part2> logger, IInputService inputService)
         {
             _logger = logger;
             _inputService = inputService;
@@ -20,7 +20,8 @@ namespace AdventOfCode.Year2023.Solutions
             var numbers = new List<int>();
             foreach (var value in values)
             {
-                var chars = value.ToCharArray();
+                var text = ReplaceTextWithDigits(value);
+                var chars = text.ToCharArray();
                 var first = GetFirstDigit(chars);
                 var second = GetLastDigit(chars);
                 var number = int.Parse(first.ToString() + second.ToString());
@@ -28,6 +29,22 @@ namespace AdventOfCode.Year2023.Solutions
             }
 
             return $"{numbers.Sum()}";
+        }
+
+        private static string ReplaceTextWithDigits(string input)
+        {
+            // replacement to accomodate start/end of other digits
+            var result = input
+                .Replace("one", "one1one")
+                .Replace("two", "two2two")
+                .Replace("three", "three3three")
+                .Replace("four", "four4four")
+                .Replace("five", "five5five")
+                .Replace("six", "six6six")
+                .Replace("seven", "seven7seven")
+                .Replace("eight", "eight8eight")
+                .Replace("nine", "nine9nine");
+            return result;
         }
 
         private static char GetFirstDigit(char[] chars)
