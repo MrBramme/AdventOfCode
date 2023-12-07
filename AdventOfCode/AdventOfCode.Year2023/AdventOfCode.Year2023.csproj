@@ -11,9 +11,21 @@
     <None Remove="Resources2023\Day02.txt" />
     <None Remove="Resources2023\Day03.txt" />
     <None Remove="Resources2023\Day04.txt" />
+    <None Remove="Resources2023\Day05.txt" />
+    <None Remove="Resources2023\Day06.txt" />
+    <None Remove="Resources2023\Day07.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Resources2023\Day07.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2023\Day06.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources2023\Day05.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources2023\Day04.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
